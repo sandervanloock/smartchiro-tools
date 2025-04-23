@@ -93,22 +93,30 @@ public class FiscaleAttestMailMerge {
 
     private static void addNonSpeelclubData(Map<String, String> data) {
         data.put("period", """
-                van 18/07/2023
-                tot 28/07/2023
+                van 18/07/2024
+                tot 28/07/2024
                 """);
-        data.put("days", "11");
-        data.put("dailyRate", "€15");
-        data.put("amount", "€165");
+        var days = 11;
+        var minPrice = 155;
+        var maxPrice = 195;
+        var averagePrice = (maxPrice + minPrice) / 2;
+        data.put("days", days + "");
+        data.put("dailyRate", averagePrice / days + "");
+        data.put("amount", averagePrice + "");
     }
 
     private static void addSpeelclubData(Map<String, String> data) {
         data.put("period", """
-                van 21/07/2023
-                tot 28/07/2023
+                van 21/07/2024
+                tot 28/07/2024
                 """);
-        data.put("days", "8");
-        data.put("dailyRate", "€18.12");
-        data.put("amount", "€145");
+        var days = 8;
+        var minPrice = 145;
+        var maxPrice = 175;
+        var averagePrice = (maxPrice + minPrice) / 2;
+        data.put("days", days + "");
+        data.put("dailyRate", averagePrice / days + "");
+        data.put("amount", averagePrice + "");
     }
 
     private static Function<Object, String> prepareValue(List<Object> lidFromSheet, List<Object> keys) {
@@ -159,16 +167,16 @@ public class FiscaleAttestMailMerge {
         Set<String> emails = getEmailsFromData(data);
         System.out.println("Sending email to " + emails);
 
-        emails.forEach(e -> sendEmail(e, attachment));
+        //emails.forEach(e -> sendEmail(e, attachment));
     }
 
     private void sendEmail(String toEmailAddress, File attachment) {
         try {
             // Create the email content
-            String messageSubject = "Chirojongens Elzestraat - Fiscaal attest Kamp Poulseur 2023";
+            String messageSubject = "Chirojongens Elzestraat - Fiscaal attest Kamp Etalle 2024";
             String bodyText = """
                     Beste ouder,<br/>
-                                        
+                    
                     <p>
                     In bijlage kan u het fiscale attest voor het voorbije kamp van uw zoon terugvinden.
                     Dit attest kan je gebruiken om de kosten van het kamp in te brengen bij de belastingen.

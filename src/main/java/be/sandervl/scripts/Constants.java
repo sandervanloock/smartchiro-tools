@@ -21,6 +21,7 @@ public class Constants {
 
     /*
     This is the tab name of the spreadsheet that will be used to export all SmartChiro data to
+     Make sure the tab is writable for account firebase-adminsdk-x78p0@smartchiro-9f399.iam.gserviceaccount.com if sheet protection is setup
      */
     public static final String SHEETS_TAB_TO_EXPORT = "SmartChiro";
 
